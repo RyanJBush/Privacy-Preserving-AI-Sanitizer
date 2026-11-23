@@ -11,8 +11,8 @@ jobs:
     name: baseline (stdlib only)
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.13"
       - name: Unit tests (candidate tests skip here because Presidio is not installed)
@@ -28,8 +28,8 @@ jobs:
     env:
       REQUIRE_CANDIDATE_TESTS: "1"   # missing dependencies FAIL instead of skipping
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.13"
       # Short venv path: a deep path made spaCy fail to load a DLL on Windows.
