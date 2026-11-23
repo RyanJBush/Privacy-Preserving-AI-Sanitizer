@@ -1,10 +1,15 @@
-# Privacy-preserving AI sanitizer (local MVP)
+# Privacy-Preserving AI Sanitizer
+
+**PII Detection, Redaction & Safe LLM Input Handling**
 
 [![CI](https://github.com/RyanJBush/Privacy-Preserving-AI-Sanitizer/actions/workflows/ci.yml/badge.svg)](https://github.com/RyanJBush/Privacy-Preserving-AI-Sanitizer/actions)
 
-A small Python layer that rewrites sensitive fields in text **before** it is handed to an LLM-provider
-object. It redacts three synthetic-scope entity types and replaces each match with a placeholder such as
-`[EMAIL_ADDRESS]`:
+A reproducible Python privacy-sanitization pipeline that detects and redacts narrowly defined personal-information
+fields before dispatch, comparing a regex baseline with a Presidio-based candidate on frozen synthetic evaluations.
+It is a local MVP: redaction is not a guarantee of anonymization, and the only provider is an in-memory mock.
+
+Concretely, it rewrites sensitive fields in text **before** it is handed to an LLM-provider object. It redacts
+three synthetic-scope entity types and replaces each match with a placeholder such as `[EMAIL_ADDRESS]`:
 
 | Type | Scope (frozen, see [EVALUATION_CONTRACT](docs/handoff/EVALUATION_CONTRACT.md)) |
 |---|---|
@@ -258,6 +263,10 @@ commits trigger further runs; see the repository's Actions tab.
   `config.py`, `demo.py`, `cli.py`
 - `fixtures/`, `docs/handoff/` (unchanged reviewer files), `config/frozen_config.json`, `reports/`
 - `tests/`, `scripts/`, `.github/workflows/ci.yml`, [WALKTHROUGH.md](WALKTHROUGH.md)
+
+The repository was renamed from `privacy-preserving-ai-sanitizer` to `Privacy-Preserving-AI-Sanitizer`. Historical
+records such as [FINAL_REVIEW_PACKET.md](FINAL_REVIEW_PACKET.md) keep the original URLs as written; GitHub
+redirects them, and their commit hashes and run IDs are unchanged. The Python package is still `sanitizer`.
 
 ## Email pattern (baseline) and its limits
 
