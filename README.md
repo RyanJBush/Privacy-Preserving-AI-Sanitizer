@@ -283,3 +283,8 @@ end with `-` and local parts may have consecutive dots (over-matches); obfuscate
 `SANITIZER_INVALID_DETECTOR_OUTPUT`. Every span is validated **before** scope or threshold filtering. Request IDs
 must fullmatch `(?:demo|req)-[0-9]{3,12}` and are never logged. Logs contain only `dispatched chars=<n>` or
 `rejected code=<CODE>`.
+
+## License
+
+[MIT](LICENSE). Third-party dependencies (Presidio, spaCy, `en_core_web_sm` and others in
+[requirements-presidio.txt](requirements-presidio.txt)) keep their own licenses.
